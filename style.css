@@ -96,6 +96,60 @@ footer{
     border-top: 3px solid black;
 }
 
+/* single page css */
+.image-placeholder{
+    position: relative;
+    height: 600px;
+    width: 100vw;
+    background: black;
+    overflow: hidden;
+}
+.image-placeholder img{
+    opacity: 0.4;
+    object-fit: cover;
+}
+.post-title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    z-index: 1;
+    color: white;
+    text-align: center;
+}
+.single-post-container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.related-content{
+    margin-inline-start: 1.8125rem;
+}
+.related-content h5{
+    font-size: 1.5rem;
+}
+.related-post-excerpt{
+    font-size: 1rem;
+}
+.share-this-post{
+    padding-top: 2rem;
+}
+.share-post-section{
+    padding-top: 1rem;
+}
+.share-post-item{
+    font-size: 2.25rem;
+}
+.related-post{
+    padding-top: 2rem;
+}
+.related-post h4{
+    font-size: 2.25rem;
+}
+
+/* mobile version styling */
+
 @media only screen and (max-width: 565px) {
     .unique-selling-point-outer{
         flex-direction: column;
