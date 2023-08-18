@@ -45,6 +45,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/sidebar.min.css" integrity="sha512-4btzzREsMNzS3OyBEIW/Wip+CuRcm+JKLOSrGi8DU3cXtZ1FWCE0cUKmcyVFbwjg1IlR0LlXXoFfppVfbB+2Gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/site.min.js" integrity="sha512-8UemmJCe6BP6Sgy/MV1UrYXoH4rEH/XdEEawEN+zIDjroLrrHwsyofnvz5UaxHa864UW+NH7OR8V63fVLm55/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="style.css" />
 
     <script
@@ -91,105 +93,92 @@
               <a class="item">CONTACT</a>
             </div>
           </div>
-          <div class="sidebar-menu">
-            <div class="ui top attached demo menu">
-                <a class="item">
-                  <i class="sidebar icon"></i>
-                </a>
-              </div>
-              <div class="ui bottom attached segment pushable">
-                <div class="ui inverted labeled icon left inline vertical sidebar menu sidebar-item">
-                  <a class="item">
-                    <i class="home icon"></i>
-                    HOME
-                  </a>
-                  <a class="item">
-                    <i class="block layout icon"></i>
-                    BLOG
-                  </a>
-                  <a class="item">
-                    <i class="smile icon"></i>
-                    PAGE 1
-                  </a>
-                  <a class="item">
-                    <i class="calendar icon"></i>
-                    PAGE 2
-                  </a>
-                  <a class="item">
-                    <i class="calendar icon"></i>
-                    CONTACT
-                  </a>
-                </div>
-              </div>
-          </div>
+          <div class="ui inverted sidebar vertical menu">
+            <a class="item">HOME</a>
+            <a class="item">BLOG</a>
+            <a class="item">PAGE 1</a>
+            <a class="item">PAGE 2</a>
+            <a class="item">CONTACT</a>
+        </div>
+        <div class="mobile-version-menu-button">
+          <button class="ui button" 
+          onclick="toggle()">
+          <i class="sidebar icon"></i>
+      </button>
+        </div>
         </div>
       </div>
     </nav>
 
-    <div class="image-placeholder">    
-      <img class="ui fluid image" src="https://img.allfootballapp.com/www/M00/40/57/720x-/-/-/CgAGVmRPNKuAF4M7AAM9FnkjQKA189.jpg.webp">
-      <div class="post-title">
-        <h1 >Richarlison</h1>
-        <p>18 / 8 / 2023</p>
-        <p>Reading Time : <span>XX minutes</span></p>
-      </div>
-    </div>
-
-    <div style="padding: 2rem 0;">
-      <main class="ui container">
-        <div class="single-post-container">
-          <div class="post-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?</p>
-          </div>
-          <div class="related-content">
-            <h5>Related Content</h5>
-            <article>
-              <div>
-                <img src="https://img.allfootballapp.com/www/M00/40/57/720x-/-/-/CgAGVmRPNKuAF4M7AAM9FnkjQKA189.jpg.webp" alt="" class="ui big image">
-                <h3>This is the post title</h3>
-                <p class="related-post-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, excepturi ipsum. Rerum natus consequatur debitis. Culpa ullam deserunt soluta, dolor sapiente impedit cum voluptatem ratione praesentium obcaecati porro illum repellendus.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-        <div class="share-this-post">
-          <span>
-            Share this post
-          </span>
-          <div class="share-post-section d-flex">
-            <div><button class="share-post-item"><i class="facebook icon"></i></button></div>
-            <div><button class="share-post-item"><i class="linkedin icon"></i></button></div>
-            <div><button class="share-post-item"><i class="twitter icon"></i></button></div>
-            <div><button class="share-post-item"><i class="whatsapp icon"></i></button></div>
-          </div>
-        </div>
-        <div class="related-post">
-          <h4>Related Post</h4>
-          <div>
-            <h3><a href="">Article 1</a></h3>
-            <h3><a href="">Article 2</a></h3>
-            <h3><a href="">Article 3</a></h3>
-          </div>
-        </div>
-      </main>
-    </div>
-
-
-    <footer>
-      <div class="ui container">
-        <div class="d-flex justify-content-space-between align-items-center footer-wrapper">
-          <div>Copyright &copy; 2023 Write your company</div>
-          <div
-            class="privacy-term-section d-flex justify-content-space-between align-items-center"
-          >
-            <div><a href="#privacy">Privacy</a></div>
-            <div><a href="#term">Term</a></div>
-          </div>
+    <div>
+      <div class="image-placeholder pusher">    
+        <img class="ui fluid image" src="https://img.allfootballapp.com/www/M00/40/57/720x-/-/-/CgAGVmRPNKuAF4M7AAM9FnkjQKA189.jpg.webp">
+        <div class="post-title">
+          <h1 >Richarlison</h1>
+          <p>18 / 8 / 2023</p>
+          <p>Reading Time : <span>XX minutes</span></p>
         </div>
       </div>
-    </footer>
+  
+      <div style="padding: 2rem 0;">
+        <main class="ui container">
+          <div class="single-post-container">
+            <div class="post-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut hic porro quae, voluptate unde aperiam laborum quo nesciunt ullam temporibus beatae sunt optio! Architecto sunt reprehenderit nobis quo, ducimus voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos dolores non rerum voluptate nulla ut excepturi reprehenderit officia voluptatibus fugit. Nostrum quae debitis, cumque dignissimos officiis quod aperiam accusantium ipsum?</p>
+            </div>
+            <div class="related-content">
+              <h5>Related Content</h5>
+              <article>
+                <div>
+                  <img src="https://img.allfootballapp.com/www/M00/40/57/720x-/-/-/CgAGVmRPNKuAF4M7AAM9FnkjQKA189.jpg.webp" alt="" class="ui big image">
+                  <h3>This is the post title</h3>
+                  <p class="related-post-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, excepturi ipsum. Rerum natus consequatur debitis. Culpa ullam deserunt soluta, dolor sapiente impedit cum voluptatem ratione praesentium obcaecati porro illum repellendus.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="share-this-post">
+            <span>
+              Share this post
+            </span>
+            <div class="share-post-section d-flex">
+              <div><button class="share-post-item"><i class="facebook icon"></i></button></div>
+              <div><button class="share-post-item"><i class="linkedin icon"></i></button></div>
+              <div><button class="share-post-item"><i class="twitter icon"></i></button></div>
+              <div><button class="share-post-item"><i class="whatsapp icon"></i></button></div>
+            </div>
+          </div>
+          <div class="related-post">
+            <h4>Related Post</h4>
+            <div>
+              <h3><a href="">Article 1</a></h3>
+              <h3><a href="">Article 2</a></h3>
+              <h3><a href="">Article 3</a></h3>
+            </div>
+          </div>
+        </main>
+      </div>
+  
+  
+      <footer>
+        <div class="ui container">
+          <div class="d-flex justify-content-space-between align-items-center footer-wrapper">
+            <div>Copyright &copy; 2023 Write your company</div>
+            <div
+              class="privacy-term-section d-flex justify-content-space-between align-items-center"
+            >
+              <div><a href="#privacy">Privacy</a></div>
+              <div><a href="#term">Term</a></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const toggle = () => $('.ui.sidebar').sidebar('toggle');
+  </script>
   </body>
 </html>
