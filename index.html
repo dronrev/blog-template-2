@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
@@ -80,9 +83,11 @@
       <div class="ui container">
         <div class="d-flex justify-content-space-between align-items-center">
           <div class="ui tiny image">
-            <img
+            <a href="#logo">
+              <img
               src="data:image/png;base64,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"
             />
+            </a>
           </div>
           <div class="nav-menu">
             <div class="ui secondary menu ">
@@ -113,33 +118,96 @@
       <div class="pusher">
         <main class="ui container">
           <div class="page-title"><h1>THIS IS THE PAGE TITLE</h1></div>
-            <div class="ui container slides">
-                <div class="ui two column doubling stackable grid container slide active">
-                    <div class="column">
-                      <img
-                        class="ui large image"
-                        src="data:image/jpeg;base64,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"
-                      />
-                    </div>
-                    <div class="column">
-                      <div
-                        class="featured-post-header d-flex justify-content-space-between align-items-center"
-                      >
-                        <div>
-                          <h2>Featured Post</h2>
-                        </div>
-                        <div class="slider-icon">
-                          <button><i class="caret left icon"></i></button>
-                          <button><i class="caret right icon"></i></button>
-                        </div>
+            <div class="ui container">
+              <!-- <button class="btn btn-danger">Woi</button> -->
+              <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="ui two column doubling stackable grid container slide active">
+                      <div class="column">
+                        <img
+                          class="ui large image"
+                          src="data:image/jpeg;base64,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"
+                        />
                       </div>
-                      <div class="article-detail">
-                        <h3 class="article-title">THIS IS THE POST TITLE</h3>
-                        <p class="article-excerpt">Article Excerpt</p>
-                        <a href="">Read More</a>
+                      <div class="column">
+                        <div
+                          class="featured-post-header d-flex justify-content-between align-items-center"
+                        >
+                          <div>
+                            <h2>Featured Post</h2>
+                          </div>
+                          <div class="slider-icon">
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide="prev"><i class="caret left icon"></i></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide="next"><i class="caret right icon"></i></button>
+                          </div>
+                        </div>
+                        <div class="article-detail">
+                          <h3 class="article-title">THIS IS THE POST TITLE 1</h3>
+                          <p class="article-excerpt">Article Excerpt</p>
+                          <a href="">Read More</a>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div class="carousel-item">
+                    <div class="ui two column doubling stackable grid container slide active">
+                      <div class="column">
+                        <img
+                          class="ui large image"
+                          src="data:image/jpeg;base64,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"
+                        />
+                      </div>
+                      <div class="column">
+                        <div
+                          class="featured-post-header d-flex justify-content-between align-items-center"
+                        >
+                          <div>
+                            <h2>Featured Post</h2>
+                          </div>
+                          <div class="slider-icon">
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide="prev"><i class="caret left icon"></i></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide="next"><i class="caret right icon"></i></button>
+                          </div>
+                        </div>
+                        <div class="article-detail">
+                          <h3 class="article-title">THIS IS THE POST TITLE 2</h3>
+                          <p class="article-excerpt">Article Excerpt</p>
+                          <a href="">Read More</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="ui two column doubling stackable grid container slide active">
+                      <div class="column">
+                        <img
+                          class="ui large image"
+                          src="data:image/jpeg;base64,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"
+                        />
+                      </div>
+                      <div class="column">
+                        <div
+                          class="featured-post-header d-flex justify-content-between align-items-center"
+                        >
+                          <div>
+                            <h2>Featured Post</h2>
+                          </div>
+                          <div class="slider-icon">
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide="prev"><i class="caret left icon"></i></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide="next"><i class="caret right icon"></i></button>
+                          </div>
+                        </div>
+                        <div class="article-detail">
+                          <h3 class="article-title">THIS IS THE POST TITLE 3</h3>
+                          <p class="article-excerpt">Article Excerpt</p>
+                          <a href="">Read More</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           <!-- latest articles section -->
           <h2>Latest Articles</h2>
@@ -271,7 +339,7 @@
           <div class="unique-selling-point">
             <div class="ui placeholder segment">
               <div
-                class="d-flex align-items-center justify-content-space-around unique-selling-point-outer"
+                class="d-flex align-items-center justify-content-around unique-selling-point-outer"
               >
                 <div>
                   <div class="ui icon header">
@@ -288,10 +356,10 @@
         </main>
         <footer>
           <div class="ui container">
-            <div class="d-flex justify-content-space-between align-items-center footer-wrapper">
+            <div class="d-flex justify-content-between align-items-center footer-wrapper">
               <div>Copyright &copy; 2023 Write your company</div>
               <div
-                class="privacy-term-section d-flex justify-content-space-between align-items-center"
+                class="privacy-term-section d-flex justify-content-between align-items-center"
               >
                 <div><a href="#privacy">Privacy</a></div>
                 <div><a href="#term">Term</a></div>

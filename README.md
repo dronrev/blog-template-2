@@ -1,3 +1,4 @@
 # blog-theme
-## SEMANTIC UI FRAMEWORK
+## UI FRAMEWORK
+UI designed with Semantic UI combine with bootstrap. Most of the item are built with Semantic UI component.
 ### CARBON FIELD FRAMEWORK
