@@ -3,21 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?php echo (get_template_directory_uri() . '/assets/semantic-ui/semantic.min.css'); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/sidebar.min.css" integrity="sha512-4btzzREsMNzS3OyBEIW/Wip+CuRcm+JKLOSrGi8DU3cXtZ1FWCE0cUKmcyVFbwjg1IlR0LlXXoFfppVfbB+2Gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/site.min.js" integrity="sha512-8UemmJCe6BP6Sgy/MV1UrYXoH4rEH/XdEEawEN+zIDjroLrrHwsyofnvz5UaxHa864UW+NH7OR8V63fVLm55/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="<?php echo (get_template_directory_uri() . '/style.css'); ?>" />
 
-    <?php wp_head(); ?>
-
-    <title>Home Page</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+      integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="<?php echo (get_template_directory_uri() . '/assets/js/sidebar.js'); ?>"></script>
+    <!-- <title>Home Page</title> -->
   </head>
   <body>
+    
     <header class="page-header">
       <div class="ui container">
         <div class="d-flex justify-content-space-between align-items-center">
-          <div class="current-date">Current Date</div>
+        <div class="current-date"> <?php echo current_time('d-M-Y'); ?> </div>
+          <?php if(carbon_get_theme_option('social_link_visibility')): ?>
           <div class="social-media-logo">
-            <i style="color: rgb(41, 41, 209)" class="facebook square icon"></i>
-            <i style="color: #0077b5" class="linkedin icon"></i>
-            <i style="color: #128c7e" class="whatsapp square icon"></i>
+            <a href="<?php echo carbon_get_theme_option('facebook_link') ?>" target="_blank"><i style="color: rgb(41, 41, 209)" class="facebook square icon"></i></a>
+            <a href="<?php echo carbon_get_theme_option('linkedin_link') ?>" target="_blank"><i style="color: #0077b5" class="linkedin icon"></i></a>
+            <a href="<?php echo carbon_get_theme_option('ws_link') ?>" target="_blank"><i style="color: #128c7e" class="whatsapp square icon"></i></a>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </header>
@@ -25,25 +45,49 @@
       <div class="ui container">
         <div class="d-flex justify-content-space-between align-items-center">
           <div class="ui tiny image">
-            <img
-              src="data:image/png;base64,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"
+            <?php if (function_exists('the_custom_logo')){
+                              $custom_logo_id = get_theme_mod('custom_logo');
+                              $logo = wp_get_attachment_image_src($custom_logo_id);
+            }
+            ?>
+            <?php $url = ($logo) ? $logo[0] : get_template_directory_uri() . '/assets/images/free-logo.png'; ?>
+            <a href="<?php echo get_home_url(); ?>">
+              <img
+              src="<?php echo $url ?>"
+              alt="<?php echo wp_get_attachment_image($thumbnail_id, 'full', false, array('alt' => $alt_text)); ?>"
             />
+            </a>
           </div>
           <div class="nav-menu">
             <div class="ui secondary menu ">
-              <a class="item">HOME</a>
-              <a class="item">BLOG</a>
-              <a class="item">PAGE 1</a>
-              <a class="item">PAGE 2</a>
-              <a class="item">CONTACT</a>
+              <?php 
+              wp_nav_menu(
+                array(
+                  'menu' => 'primary',
+                  'container' => '',
+                  'theme_location' => 'primary',
+                  'items_wrap' => '<div class="item">%3$s</div>'
+                )
+              );
+              ?>
             </div>
           </div>
           <div class="ui inverted sidebar vertical menu">
-            <a class="item">HOME</a>
+          <?php 
+              wp_nav_menu(
+                array(
+                  'menu' => 'primary',
+                  'container' => '',
+                  'theme_location' => 'primary',
+                  'items_wrap' => '<div class="item">%3$s</div>'
+                )
+              );
+              ?>
+            <!-- <a class="item">HOME</a>
             <a class="item">BLOG</a>
             <a class="item">PAGE 1</a>
             <a class="item">PAGE 2</a>
-            <a class="item">CONTACT</a>
+            <a class="item">CONTACT</a> -->
         </div>
         <div class="mobile-version-menu-button">
           <button class="ui button" 

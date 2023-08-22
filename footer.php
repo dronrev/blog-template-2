@@ -1,7 +1,7 @@
 <footer>
           <div class="ui container">
             <div class="d-flex justify-content-between align-items-center footer-wrapper">
-              <div>Copyright &copy; 2023 Write your company</div>
+              <div>Copyright &copy; 2023 Weave Asia</div>
               <div
                 class="privacy-term-section d-flex justify-content-between align-items-center"
               >
