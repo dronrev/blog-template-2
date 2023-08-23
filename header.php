@@ -83,11 +83,6 @@
                 )
               );
               ?>
-            <!-- <a class="item">HOME</a>
-            <a class="item">BLOG</a>
-            <a class="item">PAGE 1</a>
-            <a class="item">PAGE 2</a>
-            <a class="item">CONTACT</a> -->
         </div>
         <div class="mobile-version-menu-button">
           <button class="ui button" 

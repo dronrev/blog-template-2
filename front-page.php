@@ -97,11 +97,11 @@
           <!-- latest articles section -->
           <h2>Latest Articles</h2>
           <div class="latest-articles d-grid">
-            <div class="ui three cards doubling stackable">
-            <?php
+            <div class="">
+              <div class="article-content-box row align-items-center gap-4">
+              <?php
     $var_load_posts = new WP_Query([
       'post' => 'posts',
-      'posts_per_page' => 6,
       'orderby' => 'date',
       'order' => 'DATE',
       'paged' => 1
@@ -112,12 +112,13 @@
     if ($var_load_posts->have_posts()) :
       while ($var_load_posts->have_posts()) :
         $var_load_posts->the_post();
-        get_template_part('template-parts/content', 'archive');
+        get_template_part('template-parts/content', 'card');
       
       endwhile;
     wp_reset_postdata();
     endif;
     ?>
+              </div>
             </div>
           </div>
           <div class="load-more">
@@ -138,7 +139,7 @@
                   </div>
                 </div>
                 <div>
-                  <div class="massive ui button">Act Now!</div>
+                  <a href="" class="massive ui button">Act Now!</a>
                 </div>
               </div>
             </div>

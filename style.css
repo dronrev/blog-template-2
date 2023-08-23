@@ -73,13 +73,7 @@ button {
 .article-excerpt {
   font-size: 1.125rem;
 }
-.desc {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
+
 .read-more-button {
   border-bottom: 1px solid rgb(62, 160, 209);
   width: fit-content;
@@ -158,6 +152,52 @@ footer {
 .related-post h4 {
   font-size: 2.25rem;
 }
+
+/* css card */
+
+
+
+.card_ext{
+  display: flex;
+  flex-direction: column;
+  width: clamp(20rem, calc(32rem + 2vw), 25rem);
+  overflow: hidden;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: #ECE9E6;
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+
+}
+
+
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.desc {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 0.8125rem;
+}
+
+.card__body h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+  font-size: 0.8125rem;
+}
+
 
 /* mobile version styling */
 

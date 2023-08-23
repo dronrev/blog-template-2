@@ -28,6 +28,19 @@ function crb_attach_theme_options(){
         Field::make( 'html', 'crb_html', __( 'Section Description' ) )
         ->set_html( sprintf( '<p>If you do not have idea how to create WA link. Click <a href="https://create.wa.link/" target="_blank">here</a></p>' ) )
     ));
+
+    Container::make('theme_options','Banner')
+    ->add_tab(__('Text'),array(
+        Field::make('text','unique_selling_point_title',__('Title'))->set_width(50),
+        Field::make('rich_text','unique_selling_point_tagline',__('Tagline'))->set_width(50),
+        Field::make('text','button_name',__('Button Text'))->set_width(50),
+        Field::make('text','button_link',__('Button Link'))->set_width(50),
+    ))
+    ->add_tab(__('Styling'),array(
+        Field::make('color', 'crb_box_background', __( 'Background Color' ))->set_width(50),
+        Field::make('color', 'button_text_color', __( 'Button Text Color' ))->set_width(50),
+
+    ));
 }
 
 add_action('after_setup_theme', 'crb_load');
@@ -89,3 +102,35 @@ function registering_scripts(){
 }
 
 add_action('wp_enqueue_scripts','registering_scripts');
+
+add_filter('manage_posts_columns', 'add_column');
+function add_column($wordcount_column) {
+    $wordcount_column['wordcount'] = 'Word Count';
+    return $wordcount_column;
+}
+  
+//Link the word count to our new column//
+add_action('manage_posts_custom_column',  'display_wordcount'); 
+function display_wordcount($name) 
+{
+   global $post;
+   switch ($name)
+{
+     case 'wordcount':
+        //Get the post ID and pass it into the get_wordcount function//
+            $wordcount = get_wordcount($post->ID);
+            echo $wordcount;
+     }
+}
+ 
+function get_wordcount($post_id) {
+     //Get the post, remove any unnecessary tags and then perform the word count// 
+     $wordcount = str_word_count( strip_tags( strip_shortcodes(get_post_field( 'post_content', $post_id )) ) );
+      return $wordcount;
+}
+function readingTime($word_count, $wpm){
+    
+    $reading_time = $word_count / $wpm;
+    return (round($reading_time) + 1);
+    
+}
