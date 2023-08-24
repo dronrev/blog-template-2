@@ -1,4 +1,4 @@
-<article class="card_ext col-lg-4 align-items-center">
+<article class="card_ext col-lg-4 align-items-center" style="background: <?php echo carbon_get_theme_option('card_bg_color'); ?> ;">
     <div class="card__header p-2">
     <?php
       $urlSource = (get_the_post_thumbnail_url()) ? 
@@ -6,7 +6,7 @@
     ?>
       <img width="100%" src="<?php echo $urlSource; ?>" alt="card__image" class="card__image">
     </div>
-    <div class="card__body">
+    <div class="card__body" style="color: <?php echo carbon_get_theme_option('card_text_color'); ?>">
       <h3><?php the_title(); ?></h3>
       <div class="desc">
       <?php the_excerpt(); ?>

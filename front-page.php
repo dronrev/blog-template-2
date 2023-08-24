@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-    <div>
+    <div style="background: <?php echo carbon_get_theme_option('page_bg_color'); ?>;">
       <div class="pusher">
         <main class="ui container">
           <div class="page-title"><h1>Pawn To Code</h1></div>
@@ -8,7 +8,8 @@
               <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <div class="ui two column doubling stackable grid container slide active">
+                    <?php get_template_part('template-parts/content','featured-post'); ?>
+                    <!-- <div class="ui two column doubling stackable grid container slide active">
                       <div class="column">
                         <img
                           class="ui large image"
@@ -28,14 +29,14 @@
                           </div>
                         </div>
                         <div class="article-detail">
-                          <h3 class="article-title">THIS IS THE POST TITLE 1</h3>
+                          <h3 class="article-title"><?php echo carbon_get_theme_option('featured_post')[0]['title'] ?></h3>
                           <p class="article-excerpt">Article Excerpt</p>
                           <a href="">Read More</a>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
-                  <div class="carousel-item">
+                  <!-- <div class="carousel-item">
                     <div class="ui two column doubling stackable grid container slide active">
                       <div class="column">
                         <img
@@ -62,8 +63,8 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="carousel-item">
+                  </div> -->
+                  <!-- <div class="carousel-item">
                     <div class="ui two column doubling stackable grid container slide active">
                       <div class="column">
                         <img
@@ -90,7 +91,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>

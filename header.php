@@ -23,11 +23,11 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="<?php echo (get_template_directory_uri() . '/assets/js/sidebar.js'); ?>"></script>
-    <!-- <title>Home Page</title> -->
+    <title><?php echo get_bloginfo(); ?> - <?php the_title(); ?></title>
   </head>
   <body>
     
-    <header class="page-header">
+    <header class="page-header" style="background-color: <?php echo carbon_get_theme_option('header_background_color'); ?>;">
       <div class="ui container">
         <div class="d-flex justify-content-space-between align-items-center">
         <div class="current-date"> <?php echo current_time('d-M-Y'); ?> </div>
