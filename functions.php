@@ -9,6 +9,7 @@ add_action('carbon_fields_register_fields', 'crb_attach_theme_options');
 function crb_attach_theme_options()
 {
     Container::make('theme_options', 'Header')
+
         ->add_tab(__('Date'), array(
             Field::make('checkbox', 'date_visibility', __('Show')),
             Field::make('select', 'crb_select', __('Date Format'))->set_width(50)
@@ -31,6 +32,7 @@ function crb_attach_theme_options()
         ));
 
     Container::make('theme_options', 'Front Page')
+    ->set_icon( 'dashicons-admin-page' )
         ->add_tab(__('Page'), array(
             Field::make('color', 'page_bg_color', __('Background Color'))->set_width(50),
         ))
@@ -41,7 +43,7 @@ function crb_attach_theme_options()
             Field::make('complex','featured_post', __('Featured Post'))
             ->add_fields(array(
                 Field::make( 'text', 'title', __( 'Slide Title' ) )->set_width(50),
-                Field::make( 'image', 'photo', __( 'Slide Photo' ) )->set_width(50),
+                Field::make( 'image', 'photo', __( 'Slide Photo' ) )->set_value_type( 'url' )->set_width(50),
                 Field::make( 'rich_text', 'excerpt', __( 'Slide Excerpt' ) )->set_width(50),
                 Field::make( 'text', 'link', __( 'Post URL' ) )->set_width(50)
             ))

@@ -23,24 +23,12 @@ button {
   background: none;
   cursor: pointer;
 }
-.d-flex {
-  display: flex;
-}
 .d-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
-.justify-content-center {
-  justify-content: center;
-}
-.justify-content-space-between {
-  justify-content: space-between;
-}
-.justify-content-space-around {
-  justify-content: space-around;
-}
-.align-items-center {
-  align-items: center;
+.place-items-center{
+  place-items: center;
 }
 .page-header {
   padding: 1.125rem;
@@ -160,13 +148,13 @@ footer {
 .card_ext{
   display: flex;
   flex-direction: column;
-  width: clamp(20rem, calc(32rem + 2vw), 25rem);
   overflow: hidden;
   box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
   border-radius: 1em;
-  /* background: #ECE9E6; */
-  /* background: linear-gradient(to right, #FFFFFF, #ECE9E6); */
-
+  height: 70vh;
+}
+.card_ext,.card_ext img{
+  width: clamp(20rem, calc(32rem + 2vw), 25rem);
 }
 
 

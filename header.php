@@ -29,7 +29,7 @@
     
     <header class="page-header" style="background-color: <?php echo carbon_get_theme_option('header_background_color'); ?>;">
       <div class="ui container">
-        <div class="d-flex justify-content-space-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
         <div class="current-date"> <?php echo current_time('d-M-Y'); ?> </div>
           <?php if(carbon_get_theme_option('social_link_visibility')): ?>
           <div class="social-media-logo">
@@ -43,7 +43,7 @@
     </header>
     <nav class="nav-bar">
       <div class="ui container">
-        <div class="d-flex justify-content-space-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
           <div class="ui tiny image">
             <?php if (function_exists('the_custom_logo')){
                               $custom_logo_id = get_theme_mod('custom_logo');

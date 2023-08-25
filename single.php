@@ -45,10 +45,10 @@
           Share this post
         </span>
         <div class="share-post-section d-flex">
-          <div><a  href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>" target="_blank" class="share-post-item"><i class="facebook icon"></i></a></div>
-          <div><a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink() ?>" class="share-post-item"><i class="linkedin icon"></i></a></div>
-          <div><a class="share-post-item"><i class="twitter icon"></i></a></div>
-          <div><a class="share-post-item"><i class="whatsapp icon"></i></a></div>
+          <div><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>" target="_blank" class="share-post-item"><i class="facebook icon"></i></a></div>
+          <div><a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink() ?>" target="_blank" class="share-post-item"><i class="linkedin icon"></i></a></div>
+          <div><a href="" target="_blank" class="share-post-item"><i class="twitter icon"></i></a></div>
+          <div><a href="" target="_blank" class="share-post-item"><i class="whatsapp icon"></i></a></div>
         </div>
       </div>
       <div class="related-post">
