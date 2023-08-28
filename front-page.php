@@ -11,10 +11,11 @@
 
                     <div class="ui two column doubling stackable grid container slide active">
                       <div class="column">
-                        <img
+                        <!-- <img
                           class="ui medium image"
                           src="<?php echo carbon_get_theme_option('featured_post')[0]['photo'] ?>"
-                        />
+                          width="150" height="100" /> -->
+                          <img src="<?php echo carbon_get_theme_option('featured_post')[0]['photo'] ?>" alt="" style="object-fit: contain;" max-width="450" height="300">
                       </div>
                       <div class="column">
                         <div

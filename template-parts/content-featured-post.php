@@ -8,7 +8,8 @@ foreach(array_slice($featured_post,1) as $link):
 <div class="carousel-item">
 <div class="ui two column doubling stackable grid container slide active">
     <div class="column">
-        <img class="ui medium image" src="<?php echo $link['photo']; ?>" />
+        <!-- <img class="ui medium image" src="<?php echo $link['photo']; ?>"  /> -->
+        <img src="<?php echo $link['photo']; ?>" alt="" style="object-fit: cover;" max-width="350" height="300"/>
     </div>
     <div class="column">
         <div class="featured-post-header d-flex justify-content-between align-items-center">
