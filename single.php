@@ -45,10 +45,10 @@
           Share this post
         </span>
         <div class="share-post-section d-flex">
-          <div><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink() ?>" target="_blank" class="share-post-item"><i class="facebook icon"></i></a></div>
-          <div><a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink() ?>" target="_blank" class="share-post-item"><i class="linkedin icon"></i></a></div>
-          <div><a href="" target="_blank" class="share-post-item"><i class="twitter icon"></i></a></div>
-          <div><a href="" target="_blank" class="share-post-item"><i class="whatsapp icon"></i></a></div>
+          <div><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" style="color: #3b5998;" class="share-post-item"><i class="facebook icon"></i></a></div>
+          <div><a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>" target="_blank" style="color: #0072b1;" class="share-post-item"><i class="linkedin icon"></i></a></div>
+          <div><a href="https://twitter.com/intent/tweet?text=<?php the_permalink(); ?>" target="_blank" style="color: #00acee;" class="share-post-item"><i class="twitter icon"></i></a></div>
+          <div><a href="https://api.whatsapp.com/send?text=%0a<?php the_permalink();?>" target="_blank" style="color: #075e54;" class="share-post-item"><i class="whatsapp icon"></i></a></div>
         </div>
       </div>
       <div class="related-post">
