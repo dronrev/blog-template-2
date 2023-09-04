@@ -49,6 +49,10 @@ button {
   background-color: rgb(235, 147, 92);
   padding: 0.5rem;
 }
+.featured-post-image img{
+  width: 450px;
+  height: 300px;
+}
 .slider-icon {
   font-size: 1.5rem;
 }
@@ -156,9 +160,6 @@ footer {
 .card_ext,.card_ext img{
   width: clamp(20rem, calc(32rem + 2vw), 25rem);
 }
-
-
-
 .card__body {
   padding: 1rem;
   display: flex;

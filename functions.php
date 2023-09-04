@@ -129,6 +129,7 @@ function registering_scripts()
     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js', array(), '5.2.3', false);
     wp_enqueue_script('bootstrap-js-min', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array(), '5.2.3', false);
     wp_enqueue_script('weaveasia-main', get_template_directory_uri() . "/assets/js/sidebar.js", array(), '1.0', false);
+    wp_enqueue_script('weaveasia-loadmore',get_template_directory_uri() . '/assets/js.sidebar.js',array(),'1.0');
 }
 
 add_action('wp_enqueue_scripts', 'registering_scripts');
@@ -161,7 +162,33 @@ function get_wordcount($post_id)
 }
 function readingTime($word_count, $wpm)
 {
-
     $reading_time = $word_count / $wpm;
     return (round($reading_time) + 1);
 }
+
+function load_more_posts(){
+    $ajax_posts = new WP_Query([
+        'post_type' => 'post',
+        'posts_per_page' => 3,
+        'paged' => $_POST['paged'],
+    ]);
+
+    $response = '';
+
+    $has_more = $ajax_posts->max_num_pages > $_POST['paged'];
+
+    if($ajax_posts->have_posts()){
+        while($ajax_posts->have_posts()) : 
+            $ajax_posts->the_posts();
+            $response .= get_template_part('template-parts/content','archive');
+        endwhile;
+    }
+    else{
+        $response = '';
+    }
+
+    echo $response;
+    exit;
+}
+add_action('wp_ajax_load_more_posts','load_more_posts');
+add_action('wp_ajax_nopriv_load_more_posts','load_more_posts');

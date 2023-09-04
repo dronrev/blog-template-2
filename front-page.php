@@ -2,7 +2,7 @@
     <div style="background: <?php echo carbon_get_theme_option('page_bg_color'); ?>;">
       <div class="pusher">
         <main class="ui container">
-          <div class="page-title"><h1>Pawn To Code</h1></div>
+          <div class="page-title"><h1><?php echo get_bloginfo(); ?></h1></div>
             <div class="ui container">
               <!-- <button class="btn btn-danger">Woi</button> -->
               <div id="carouselExample" class="carousel slide">
@@ -11,12 +11,10 @@
 
                     <div class="ui two column doubling stackable grid container slide active">
                       <div class="column">
-                        <!-- <img
-                          class="ui medium image"
-                          src="<?php echo carbon_get_theme_option('featured_post')[0]['photo'] ?>"
-                          width="150" height="100" /> -->
-                          <img src="<?php echo carbon_get_theme_option('featured_post')[0]['photo'] ?>" alt="" style="object-fit: contain;" max-width="450" height="300">
-                      </div>
+                        <div class="featured-post-image">
+                        <img src="<?php echo carbon_get_theme_option('featured_post')[0]['photo'] ?>" alt="">
+                        </div>
+                    </div>
                       <div class="column">
                         <div
                           class="featured-post-header d-flex justify-content-between align-items-center"
@@ -70,7 +68,7 @@
           </div>
           <div class="load-more">
             <div class="d-flex justify-content-center">
-              <button class="ui huge button">Load More</button>
+              <button class="ui huge button load-more-btn">Load More</button>
             </div>
           </div>
     

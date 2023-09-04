@@ -8,8 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo (get_template_directory_uri() . '/assets/semantic-ui/semantic.min.css'); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/sidebar.min.css" integrity="sha512-4btzzREsMNzS3OyBEIW/Wip+CuRcm+JKLOSrGi8DU3cXtZ1FWCE0cUKmcyVFbwjg1IlR0LlXXoFfppVfbB+2Gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/site.min.js" integrity="sha512-8UemmJCe6BP6Sgy/MV1UrYXoH4rEH/XdEEawEN+zIDjroLrrHwsyofnvz5UaxHa864UW+NH7OR8V63fVLm55/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="<?php echo (get_template_directory_uri() . '/style.css'); ?>" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/site.min.js" integrity="sha512-8UemmJCe6BP6Sgy/MV1UrYXoH4rEH/XdEEawEN+zIDjroLrrHwsyofnvz5UaxHa864UW+NH7OR8V63fVLm55/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
 
     <script
       src="https://code.jquery.com/jquery-3.7.0.min.js"
@@ -23,6 +24,7 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="<?php echo (get_template_directory_uri() . '/assets/js/sidebar.js'); ?>"></script>
+    <script type="module" id="test" src='<?php echo get_template_directory_uri() . "/assets/js/loadmore.js"?>'></script>
     <title><?php echo get_bloginfo(); ?> - <?php the_title(); ?></title>
   </head>
   <body>

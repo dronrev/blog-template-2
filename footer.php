@@ -20,7 +20,7 @@
 </div>
 </div>
 <script>
-  const toggle = () => $('.ui.sidebar').sidebar('toggle');
+  const toggle = () => $('.ui.sidebar').sidebar('show');
 </script>
 </body>
 
