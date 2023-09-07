@@ -163,16 +163,6 @@ function registering_styles()
 
 add_action('wp_enqueue_scripts', 'registering_styles');
 
-// function registering_scripts()
-// {
-//     wp_enqueue_script('semantic-ui-component-js', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/site.min.js', array(), '2.5.0', true);
-//     wp_enqueue_script('jquery-theme', 'https://code.jquery.com/jquery-3.7.0.min.js', array(), '3.7.0', true);
-//     wp_enqueue_script('semantic-ui-js', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js', array(), '2.5.0', false);
-//     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js', array(), '5.2.3', false);
-//     wp_enqueue_script('bootstrap-js-min', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array(), '5.2.3', false);
-//     wp_enqueue_script('weaveasia-main', get_template_directory_uri() . "/assets/js/sidebar.js", array(), '1.0', false);
-// }
-
 function registering_scripts()
 {
     // Enqueue jQuery with a dependency array containing only jQuery itself.
