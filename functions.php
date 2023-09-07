@@ -11,8 +11,7 @@ add_action('carbon_fields_register_fields', 'crb_attach_theme_options');
 
 function crb_attach_theme_options()
 {
-    $data = [];
-    $post_count = 0;
+    $all_posts = [];
     $var_load_posts = new WP_Query([
         'post' => 'posts',
         'orderby' => 'date',
@@ -22,8 +21,7 @@ function crb_attach_theme_options()
     if ($var_load_posts->have_posts()) :
         while ($var_load_posts->have_posts()) :
             $var_load_posts->the_post();
-            $data[get_the_ID()] = get_the_title();
-            $post_count++;
+            $all_posts[get_the_ID()] = get_the_title();
         endwhile;
         wp_reset_postdata();
     endif;
@@ -36,7 +34,7 @@ function crb_attach_theme_options()
     ->set_option_value( 'yes' ),
             Field::make('select', 'show_related_content_select', __('Choose Options'))
                 ->set_options(
-                    $data
+                    $all_posts
                 ),
         ));
 
@@ -165,16 +163,31 @@ function registering_styles()
 
 add_action('wp_enqueue_scripts', 'registering_styles');
 
+// function registering_scripts()
+// {
+//     wp_enqueue_script('semantic-ui-component-js', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/site.min.js', array(), '2.5.0', true);
+//     wp_enqueue_script('jquery-theme', 'https://code.jquery.com/jquery-3.7.0.min.js', array(), '3.7.0', true);
+//     wp_enqueue_script('semantic-ui-js', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js', array(), '2.5.0', false);
+//     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js', array(), '5.2.3', false);
+//     wp_enqueue_script('bootstrap-js-min', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array(), '5.2.3', false);
+//     wp_enqueue_script('weaveasia-main', get_template_directory_uri() . "/assets/js/sidebar.js", array(), '1.0', false);
+// }
+
 function registering_scripts()
 {
+    // Enqueue jQuery with a dependency array containing only jQuery itself.
+    wp_enqueue_script('weaveasia-jquery', "https://code.jquery.com/jquery-3.4.1.slim.min.js", array(), '3.4.1', false);
+
+    // Enqueue other scripts without jQuery as a dependency.
     wp_enqueue_script('semantic-ui-component-js', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/components/site.min.js', array(), '2.5.0', true);
-    wp_enqueue_script('jquery-theme', 'https://code.jquery.com/jquery-3.7.0.min.js', array(), '3.7.0', false);
     wp_enqueue_script('semantic-ui-js', 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js', array(), '2.5.0', false);
     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js', array(), '5.2.3', false);
     wp_enqueue_script('bootstrap-js-min', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array(), '5.2.3', false);
     wp_enqueue_script('weaveasia-main', get_template_directory_uri() . "/assets/js/sidebar.js", array(), '1.0', false);
-    // wp_enqueue_script('weaveasia-loadmore', get_template_directory_uri() . '/assets/loadmore.js', array(), '1.0');
 }
+
+add_action('wp_enqueue_scripts', 'registering_scripts');
+
 
 add_action('wp_enqueue_scripts', 'registering_scripts');
 
@@ -224,8 +237,8 @@ function load_more_posts()
 
     if ($ajax_posts->have_posts()) {
         while ($ajax_posts->have_posts()) :
-            $ajax_posts->the_posts();
-            $response .= get_template_part('template-parts/content', 'archive');
+            $ajax_posts->the_post();
+            $response .= get_template_part('template-parts/content', 'card');
         endwhile;
     } else {
         $response = '';

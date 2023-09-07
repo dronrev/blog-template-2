@@ -1,12 +1,12 @@
-jQuery(document).ready(function() {
+$(document).ready(function() {
     var page = 1;
-    jQuery('.load-more-btn').on('click',function(e){
+    $('.load-more-btn').on('click',function(e){
         console.log('test')
         page++;
         e.preventDefault();
         $.ajax({
             type : 'POST',
-            url : './wp-admin/admin-ajax.php',
+            url : admin_url('admin-ajax.php'),
             dataType : 'html',
             data: {
                 action : 'load_more_posts',

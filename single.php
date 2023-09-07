@@ -43,7 +43,7 @@
             ?>
             <article>
               <div>
-                <img src="https://img.allfootballapp.com/www/M00/40/57/720x-/-/-/CgAGVmRPNKuAF4M7AAM9FnkjQKA189.jpg.webp" alt="" class="ui big image">
+                <img style="width: 200px; height:300px;" src="<?php echo get_the_post_thumbnail_url($related_content_id); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($related_content_id), '_wp_attachment_image_alt', true); ?>" class="ui big image">
                 <h3><?php
 
                     echo $content;

@@ -68,7 +68,7 @@
       </div>
       <div class="load-more">
         <div class="d-flex justify-content-center">
-          <button class="ui huge button load-more-btn">Load More</button>
+          <a href="#" class="ui huge button load-more-btn">Load More</a>
         </div>
       </div>
 
