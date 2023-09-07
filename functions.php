@@ -221,9 +221,6 @@ function load_more_posts()
     ]);
 
     $response = '';
-
-    $has_more = $ajax_posts->max_num_pages > $_POST['paged'];
-
     if ($ajax_posts->have_posts()) {
         while ($ajax_posts->have_posts()) :
             $ajax_posts->the_post();

@@ -10,6 +10,53 @@ Please take note that the only bootstrap is using CDN.
 Plugins are built using CarbonFields library.
 [CarbonFields](https://docs.carbonfields.net/)
 
+## CARD
+The card is not using any framework. It is customized card. Below are the css code:
+
+
+`.card_ext{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  height: 70vh;
+}
+.card_ext,.card_ext img{
+  width: clamp(20rem, calc(32rem + 2vw), 25rem);
+}
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.card__image{
+  height: 250px;
+}
+
+.desc {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 0.8125rem;
+}
+
+.card__body h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+  font-size: 0.8125rem;
+}`
+
 ### CODE EXPLANATION
 
 > Theme and Post Options
@@ -123,6 +170,7 @@ Below codes are theme options and post options using carbonfields library
 
 > Reading time plugin
 This code is to display word count of post to for the reading time plugin
+
 `add_action('manage_posts_custom_column',  'display_wordcount');
 function display_wordcount($name)
 {
@@ -134,4 +182,5 @@ function display_wordcount($name)
             echo $wordcount;
     }
 }`
+
 
