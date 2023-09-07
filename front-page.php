@@ -72,6 +72,8 @@
         </div>
       </div>
 
+
+      <?php if(carbon_get_theme_option('banner_post_active')): ?>
       <div class="unique-selling-point">
         <?php
         $background = '';
@@ -108,5 +110,6 @@
           </div>
         </div>
       </div>
+      <?php endif; ?>
     </main>
     <?php get_footer(); ?>

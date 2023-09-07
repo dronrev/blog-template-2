@@ -94,6 +94,7 @@ function crb_attach_theme_options()
             // Field::make('color', 'card_bg_color', __( 'Card Color' ))->set_width(50)
         ))
         ->add_tab(__('Banner'), array(
+            Field::make('checkbox','banner_post_active',__('Is Active')),
             Field::make('text', 'unique_selling_point_title', __('Title'))->set_width(50),
             Field::make('rich_text', 'unique_selling_point_tagline', __('Tagline'))->set_width(50),
             Field::make('text', 'button_name', __('Button Text'))->set_width(50),
