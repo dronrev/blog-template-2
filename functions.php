@@ -4,10 +4,42 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 
+
+
+
 add_action('carbon_fields_register_fields', 'crb_attach_theme_options');
 
 function crb_attach_theme_options()
 {
+    $data = [];
+    $post_count = 0;
+    $var_load_posts = new WP_Query([
+        'post' => 'posts',
+        'orderby' => 'date',
+        'posts_per_page' => -1
+    ]);
+
+    if ($var_load_posts->have_posts()) :
+        while ($var_load_posts->have_posts()) :
+            $var_load_posts->the_post();
+            $data[get_the_ID()] = get_the_title();
+            $post_count++;
+        endwhile;
+        wp_reset_postdata();
+    endif;
+
+
+    Container::make('post_meta', __('Related Content'))
+        ->where('post_type', '=', 'post')
+        ->add_fields(array(
+            Field::make( 'checkbox', 'show_related_content', 'Is Active' )
+    ->set_option_value( 'yes' ),
+            Field::make('select', 'show_related_content_select', __('Choose Options'))
+                ->set_options(
+                    $data
+                ),
+        ));
+
     Container::make('theme_options', 'Header')
 
         ->add_tab(__('Date'), array(
@@ -32,21 +64,26 @@ function crb_attach_theme_options()
         ));
 
     Container::make('theme_options', 'Front Page')
-    ->set_icon( 'dashicons-admin-page' )
+        ->set_icon('dashicons-admin-page')
         ->add_tab(__('Page'), array(
-            Field::make('color', 'page_bg_color', __('Background Color'))->set_width(50),
+            Field::make('color', 'page_bg_color', __('Background Color')),
+            Field::make('color', 'header_horizontal_line', __('Header Horizontal Line'))->set_width(50),
+            Field::make('color', 'footer_horizontal_line', __('Footer Horizontal Line'))->set_width(50),
+        ))
+        ->add_tab(__('Single Post'), array(
+            Field::make('color', 'single_post_color', 'Background Color'),
         ))
         ->add_tab(__('Navigation Bar'), array(
             Field::make('color', 'nav_bg_color', __('Nav Color'))->set_width(50),
         ))
         ->add_tab(__('Featured Post'), array(
-            Field::make('complex','featured_post', __('Featured Post'))
-            ->add_fields(array(
-                Field::make( 'text', 'title', __( 'Slide Title' ) )->set_width(50),
-                Field::make( 'image', 'photo', __( 'Slide Photo' ) )->set_value_type( 'url' )->set_width(50),
-                Field::make( 'rich_text', 'excerpt', __( 'Slide Excerpt' ) )->set_width(50),
-                Field::make( 'text', 'link', __( 'Post URL' ) )->set_width(50)
-            ))
+            Field::make('complex', 'featured_post', __('Featured Post'))
+                ->add_fields(array(
+                    Field::make('text', 'title', __('Slide Title'))->set_width(50),
+                    Field::make('image', 'photo', __('Slide Photo'))->set_value_type('url')->set_width(50),
+                    Field::make('rich_text', 'excerpt', __('Slide Excerpt'))->set_width(50),
+                    Field::make('text', 'link', __('Post URL'))->set_width(50)
+                ))
         ))
         ->add_tab(__('Card'), array(
             Field::make('color', 'card_bg_color', __('Card Color'))->set_width(50),
@@ -58,8 +95,15 @@ function crb_attach_theme_options()
             Field::make('rich_text', 'unique_selling_point_tagline', __('Tagline'))->set_width(50),
             Field::make('text', 'button_name', __('Button Text'))->set_width(50),
             Field::make('text', 'button_link', __('Button Link'))->set_width(50),
+            Field::make('radio', 'crb_radio_segment_background', __('Segment Background Option'))
+                ->set_options(array(
+                    '1' => 'Image',
+                    '2' => 'Color',
+                )),
             Field::make('color', 'crb_box_background', __('Background Color'))->set_width(50),
-            Field::make('color', 'button_text_color', __('Button Text Color'))->set_width(50)
+            Field::make('image', 'crb_segment_image_background', __('Background Image'))->set_value_type('url')->set_width(50),
+            Field::make('color', 'button_text_color', __('Button Text Color'))->set_width(50),
+            Field::make('color', 'button_background_color', __('Button Background Color'))->set_width(50),
         ));
 
     Container::make('theme_options', 'Footer')
@@ -129,7 +173,7 @@ function registering_scripts()
     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js', array(), '5.2.3', false);
     wp_enqueue_script('bootstrap-js-min', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array(), '5.2.3', false);
     wp_enqueue_script('weaveasia-main', get_template_directory_uri() . "/assets/js/sidebar.js", array(), '1.0', false);
-    wp_enqueue_script('weaveasia-loadmore',get_template_directory_uri() . '/assets/js.sidebar.js',array(),'1.0');
+    // wp_enqueue_script('weaveasia-loadmore', get_template_directory_uri() . '/assets/loadmore.js', array(), '1.0');
 }
 
 add_action('wp_enqueue_scripts', 'registering_scripts');
@@ -166,7 +210,8 @@ function readingTime($word_count, $wpm)
     return (round($reading_time) + 1);
 }
 
-function load_more_posts(){
+function load_more_posts()
+{
     $ajax_posts = new WP_Query([
         'post_type' => 'post',
         'posts_per_page' => 3,
@@ -177,18 +222,29 @@ function load_more_posts(){
 
     $has_more = $ajax_posts->max_num_pages > $_POST['paged'];
 
-    if($ajax_posts->have_posts()){
-        while($ajax_posts->have_posts()) : 
+    if ($ajax_posts->have_posts()) {
+        while ($ajax_posts->have_posts()) :
             $ajax_posts->the_posts();
-            $response .= get_template_part('template-parts/content','archive');
+            $response .= get_template_part('template-parts/content', 'archive');
         endwhile;
-    }
-    else{
+    } else {
         $response = '';
     }
 
     echo $response;
     exit;
 }
-add_action('wp_ajax_load_more_posts','load_more_posts');
-add_action('wp_ajax_nopriv_load_more_posts','load_more_posts');
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+add_action('wp_ajax_load_more_posts', 'load_more_posts');
+
+add_action('init', 'my_script_enqueuer');
+
+function my_script_enqueuer()
+{
+    wp_register_script("loadMore", get_template_directory_uri() . "/assets/js/loadmore.js", array('jquery'));
+    wp_localize_script('loadMore', 'loadmorepagination', array('ajaxurl' => admin_url('admin-ajax.php')));
+
+
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('loadMore');
+}

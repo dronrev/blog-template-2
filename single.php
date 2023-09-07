@@ -2,12 +2,13 @@
 
 <div>
   <div class="image-placeholder pusher">
-    <img class="ui fluid image" src="https://img.allfootballapp.com/www/M00/40/57/720x-/-/-/CgAGVmRPNKuAF4M7AAM9FnkjQKA189.jpg.webp">
-    <?php 
+    <?php $thumbnailUrl = (get_the_post_thumbnail_url()) ? get_the_post_thumbnail_url() : get_template_directory_uri() . '/assets/images/blog-post-banner.jpg'; ?>
+    <img class="ui fluid image" src="<?php echo $thumbnailUrl; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+    <?php
 
-    $wordCount = get_wordcount(get_the_ID()); 
-    $reading_time = readingTime($wordCount,183);
-    
+    $wordCount = get_wordcount(get_the_ID());
+    $reading_time = readingTime($wordCount, 183);
+
     ?>
     <div class="post-title">
       <h1><?php the_title(); ?></h1>
@@ -16,7 +17,7 @@
     </div>
   </div>
 
-  <div style="padding: 2rem 0;">
+  <div style="padding: 2rem 0; background-color:<?php echo carbon_get_theme_option('single_post_color'); ?>;">
     <main class="ui container">
       <div class="single-post-container">
         <div class="post-details">
@@ -29,35 +30,31 @@
           }
           ?>
         </div>
-        <div class="related-content">
-          <h5>Related Content</h5>
-          <article>
-            <div>
-              <img src="https://img.allfootballapp.com/www/M00/40/57/720x-/-/-/CgAGVmRPNKuAF4M7AAM9FnkjQKA189.jpg.webp" alt="" class="ui big image">
-              <h3>This is the post title</h3>
-              <p class="related-post-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, excepturi ipsum. Rerum natus consequatur debitis. Culpa ullam deserunt soluta, dolor sapiente impedit cum voluptatem ratione praesentium obcaecati porro illum repellendus.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="share-this-post">
-        <span>
-          Share this post
-        </span>
-        <div class="share-post-section d-flex">
-          <div><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" style="color: #3b5998;" class="share-post-item"><i class="facebook icon"></i></a></div>
-          <div><a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>" target="_blank" style="color: #0072b1;" class="share-post-item"><i class="linkedin icon"></i></a></div>
-          <div><a href="https://twitter.com/intent/tweet?text=<?php the_permalink(); ?>" target="_blank" style="color: #00acee;" class="share-post-item"><i class="twitter icon"></i></a></div>
-          <div><a href="https://api.whatsapp.com/send?text=%0a<?php the_permalink();?>" target="_blank" style="color: #075e54;" class="share-post-item"><i class="whatsapp icon"></i></a></div>
-        </div>
-      </div>
-      <div class="related-post">
-        <h4>Related Post</h4>
-        <div>
-          <h3><a href="">Article 1</a></h3>
-          <h3><a href="">Article 2</a></h3>
-          <h3><a href="">Article 3</a></h3>
-        </div>
+        <?php if (carbon_get_the_post_meta('show_related_content')) : ?>
+          <div class="related-content">
+            <h5>Related Content</h5>
+            <?php
+            $related_content_id =  carbon_get_the_post_meta('show_related_content_select');
+            $content_post = get_post($related_content_id);
+            $content = $content_post->post_title;
+            $content_excerpt = $content_post->post_excerpt;
+            $content = apply_filters('the_content', $content);
+            $content = str_replace(']]>', ']]&gt;', $content);
+            ?>
+            <article>
+              <div>
+                <img src="https://img.allfootballapp.com/www/M00/40/57/720x-/-/-/CgAGVmRPNKuAF4M7AAM9FnkjQKA189.jpg.webp" alt="" class="ui big image">
+                <h3><?php
+
+                    echo $content;
+                    ?>
+                </h3>
+                <p class="related-post-excerpt"><?php echo $content_excerpt; ?></p>
+                <a href="<?php echo get_post_permalink($related_content_id); ?>">Read More</a>
+              </div>
+            </article>
+          </div>
+        <?php endif; ?>
       </div>
     </main>
   </div>

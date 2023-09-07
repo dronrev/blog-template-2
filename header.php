@@ -29,7 +29,7 @@
   </head>
   <body>
     
-    <header class="page-header" style="background-color: <?php echo carbon_get_theme_option('header_background_color'); ?>;">
+    <header class="page-header" style="background-color: <?php echo carbon_get_theme_option('header_background_color'); ?>;border-bottom-color: <?php echo carbon_get_theme_option('header_horizontal_line'); ?>;">
       <div class="ui container">
         <div class="d-flex justify-content-between align-items-center">
         <div class="current-date"> <?php echo current_time('d-M-Y'); ?> </div>
@@ -43,7 +43,7 @@
         </div>
       </div>
     </header>
-    <nav class="nav-bar">
+    <nav class="nav-bar" style="border-bottom-color: <?php echo carbon_get_theme_option('header_horizontal_line'); ?>;">
       <div class="ui container">
         <div class="d-flex justify-content-between align-items-center">
           <div class="ui tiny image">

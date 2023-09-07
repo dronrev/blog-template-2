@@ -3,7 +3,7 @@
       $urlSource = (get_the_post_thumbnail_url()) ? 
        get_the_post_thumbnail_url() :  get_template_directory_uri() . '/assets/images/blog-post-banner.jpeg';
     ?>
-      <img src="<?php echo $urlSource; ?>" alt="card__image" class="card__image">    
+      <img src="<?php echo $urlSource; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" class="card__image">    
 
     <div class="card__body" style="color: <?php echo carbon_get_theme_option('card_text_color'); ?>">
       <h3><?php the_title(); ?></h3>

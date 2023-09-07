@@ -1,4 +1,4 @@
-<footer style="color: <?php echo carbon_get_theme_option('footer_text_color'); ?>; background-color:<?php echo carbon_get_theme_option('footer_bg_color'); ?>;">
+<footer style="border-top-color:<?php echo carbon_get_theme_option('footer_horizontal_line'); ?>;color: <?php echo carbon_get_theme_option('footer_text_color'); ?>; background-color:<?php echo carbon_get_theme_option('footer_bg_color'); ?>;">
   <div class="ui container">
     <div class="d-flex justify-content-between align-items-center footer-wrapper">
       <div> <span>Copyright &copy; <?php echo carbon_get_theme_option('copyright_text'); ?></span> </div>
