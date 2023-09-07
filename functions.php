@@ -4,7 +4,12 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 
-
+add_action('after_setup_theme', 'crb_load');
+function crb_load()
+{
+    require_once('vendor/autoload.php');
+    \Carbon_Fields\Carbon_Fields::boot();
+}
 
 
 add_action('carbon_fields_register_fields', 'crb_attach_theme_options');
@@ -114,12 +119,6 @@ function crb_attach_theme_options()
         ));
 }
 
-add_action('after_setup_theme', 'crb_load');
-function crb_load()
-{
-    require_once('vendor/autoload.php');
-    \Carbon_Fields\Carbon_Fields::boot();
-}
 
 
 function weaveasia_theme_support()
@@ -188,7 +187,7 @@ function add_column($wordcount_column)
     return $wordcount_column;
 }
 
-//Link the word count to our new column//
+//Link the word count to our new column
 add_action('manage_posts_custom_column',  'display_wordcount');
 function display_wordcount($name)
 {

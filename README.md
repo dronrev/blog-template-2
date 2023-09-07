@@ -12,10 +12,10 @@ Plugins are built using CarbonFields library.
 
 ### CODE EXPLANATION
 
+> Theme and Post Options
 Below codes are theme options and post options using carbonfields library
 
-`
-function crb_attach_theme_options()
+`function crb_attach_theme_options()
 {
     $all_posts = [];
     $var_load_posts = new WP_Query([
@@ -119,3 +119,19 @@ function crb_attach_theme_options()
             Field::make('checkbox', 'privacy_visibility', __('Show Privacy-Policy'))->set_width(50)->set_option_value('yes')
         ));
 }`
+
+
+> Reading time plugin
+This code is to display word count of post to for the reading time plugin
+`add_action('manage_posts_custom_column',  'display_wordcount');
+function display_wordcount($name)
+{
+    global $post;
+    switch ($name) {
+        case 'wordcount':
+            //Get the post ID and pass it into the get_wordcount function//
+            $wordcount = get_wordcount($post->ID);
+            echo $wordcount;
+    }
+}`
+
