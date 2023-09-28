@@ -1,0 +1,256 @@
+/* 
+Theme Name: Weave Asia Blog Template II
+Theme URI: https://weave.asia/
+Author: Vernord Musran, Mak Mei Ping
+Author URI: https://vernord-musran.netlify.app/
+Description: Blog template
+Tags: Weave Asia
+Version: 1.0.0
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root{
+  --header-horizontal-color : black;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  /* font-size: 2rem; */
+}
+
+a{
+  text-decoration: none;
+  color: black  ;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.place-items-center{
+  place-items: center;
+}
+
+.social-media-icon a{
+  opacity: 0.5;
+}
+
+/* navbar */
+.nav-bar {
+  padding: 1rem;
+}
+
+.img-logo{
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.page-header,.nav-bar{
+  border-bottom: 1px solid;
+}
+
+
+/* navbar */
+
+
+
+.page-title {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.featured-post-header {
+  background-color: #eb935c;
+  padding: 0.5rem;
+}
+.featured-post-image img{
+  width: 517px;
+  height: 285px;
+  display: inline-block;
+}
+.slider-icon {
+  font-size: 1.5rem;
+}
+.latest-articles {
+  padding-top: 1rem;
+}
+.article-detail {
+  padding: 0.2rem;
+}
+.article-excerpt {
+  font-size: 1rem;
+}
+
+.read-more-button {
+  width: fit-content;
+  padding-top: 1rem;
+}
+
+.read-more-button:hover{
+  opacity: 0.6;
+}
+
+.load-more {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.load-more-btn{
+  width: 20rem;
+  text-align: center;
+  border: 1px solid;
+  border-color:#edbb99;
+}
+
+.load-more-btn:hover{
+  opacity: 0.5;
+}
+
+.unique-selling-point {
+  padding-bottom: 2rem;
+}
+
+.unique-selling-point-container{
+  position: relative;
+  overflow: hidden;
+}
+
+.unique-selling-point-container img {
+  opacity: 0.4;
+  object-fit: cover;
+}
+.unique-selling-point-container > .card-body-outer{
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.unique-selling-point-title {
+  font-size: 1.5rem;
+}
+
+.banner-button:hover{
+  opacity: 0.8;
+}
+
+.privacy-term-section {
+  gap: 0.8rem;
+}
+
+footer {
+  padding: 1.5rem 0;
+  border-top: 1px solid;
+}
+
+/* single page css */
+.image-placeholder {
+  position: relative;
+  height: 600px;
+  width: 99vw;
+  background: black;
+  overflow: hidden;
+  
+}
+.image-placeholder-item {
+  object-fit: cover;
+  opacity: 0.4;
+  width: 100%;
+  height: 600px;
+}
+.post-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+/* .single-post-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+} */
+.related-content {
+  margin-inline-start: 1.8125rem;
+}
+.related-content h5 {
+  font-size: 1.5rem;
+}
+.related-post-excerpt {
+  font-size: 1rem;
+}
+.share-this-post {
+  padding-top: 2rem;
+}
+/* .share-post-section {
+  padding-top: 1rem;
+} */
+.share-post-item {
+  font-size: 2.25rem;
+}
+.related-post {
+  padding-top: 3rem;
+}
+.related-post h4 {
+  font-size: 2.25rem;
+}
+
+/* css card */
+
+.article-card:hover{
+  transform: scale(1.125);
+}
+
+.card-inner-container a{
+  color: black;
+}
+
+.card-tag-item{
+  display: inline-block;
+}
+
+.card-desc{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+
+
+/* mobile version styling */
+
+@media only screen and (max-width: 565px) {
+  .unique-selling-point-outer {
+    flex-direction: column;
+  }
+  .footer-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .article-content-box{
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .featured-post-image img{
+    display: flex;
+    justify-content: center;
+  }
+}
